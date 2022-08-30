@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php require "widget/head.php";   ?>
+<?php 
+  require "widget/head.php";
+  require "php/class/bdd.php";
+  $bdd=new bdd();
+  $connect=$bdd->connect();
+  require "php/methods/main.php"; 
+?>
 
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
   <div class="wrapper">
