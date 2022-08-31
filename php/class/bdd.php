@@ -1,10 +1,10 @@
 <?php
 class bdd{
     #Base des donnes local
-	var $host='localhost';
-	var $dbname='irdavid';
-	var $user='root';
-	var $pass='';
+	var $host='sql.freedb.tech';
+	var $dbname='freedb_irdavid';
+	var $user='freedb_frankm';
+	var $pass='#3&aTgj78XdnZkZ';
     function connect(){
     try { 
 	    $bdd = 	new PDO('mysql:host='.$this->host.';dbname='.$this->dbname, $this->user, $this->pass);
@@ -32,4 +32,17 @@ class bdd{
         $resultats=$requete->fetchAll();
         return $resultats;
     }
+    function getMember($names,$pass){
+        $requete= $this->connect()->prepare("SELECT*FROM users where names=:names and password=:pass");
+        $requete->bindParam(':names',$names);
+	    $requete->bindParam(':pass',$pass);
+        $requete->execute();
+        $resultats=$requete->fetchAll();
+        return $resultats;
+    }
+}
+$bdd=new bdd();
+$connect=$bdd->connect();
+if(isset($_COOKIE["user"])){
+    $user_connected=json_decode($_COOKIE["user"],true);
 }

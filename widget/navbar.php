@@ -5,10 +5,10 @@
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="index3.html" class="nav-link">Home</a>
+          <a href="index.php" class="nav-link">Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="#" class="nav-link">Contact</a>
+          <a href="?listUsers" class="nav-link">Utilisateurs</a>
         </li>
       </ul>
 
@@ -150,7 +150,7 @@
             <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="index.php?profile=1&connected" class="d-block">User name</a>
+            <a href="index.php?profile=1" class="d-block"><?php echo $user_connected["names"];  ?></a>
           </div>
         </div>
 
@@ -170,14 +170,20 @@
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
+                <a href="index.php?listUsers" class="nav-link">
+                    <i class="nav-icon fas fa-users  text-primary"></i>
+                    <p class="text">Utilisateurs</p>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="index.php?profile=1&connected" class="nav-link">
-                    <i class="nav-icon far fa-user text-primary"></i>
+                    <i class="nav-icon fas fa-user text-primary"></i>
                     <p class="text">Profile</p>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="index.php" class="nav-link">
-                    <i class="nav-icon far fa-circle text-danger"></i>
+                <a href="index.php?deconnexion" class="nav-link">
+                    <i class="nav-icon fas fa-circle text-danger"></i>
                     <p class="text">Deconnexion</p>
                 </a>
             </li>

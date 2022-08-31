@@ -8,7 +8,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="index.php">Home</a></li>
               <li class="breadcrumb-item active">User Profile</li>
             </ol>
           </div>
@@ -31,9 +31,9 @@
                        alt="User profile picture">
                 </div>
 
-                <h3 class="profile-username text-center">Nina Mcintire</h3>
+                <h3 class="profile-username text-center"><?php echo $user_connected['names']; ?></h3>
 
-                <p class="text-muted text-center">Software Engineer</p>
+                <p class="text-muted text-center">Age: <?php echo $user_connected['age']; ?> ans</p>
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">

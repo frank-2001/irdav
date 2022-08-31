@@ -1,27 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php 
-  require "widget/head.php";
-  require "php/class/bdd.php";
-  $bdd=new bdd();
-  $connect=$bdd->connect();
-  require "php/methods/main.php"; 
+<?php require "widget/head.php"; 
+      require "php/class/bdd.php";
+      require "php/methods/main.php";     
 ?>
 
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
   <div class="wrapper">
-
-    <!-- Preloader -->
-    
-
-
-    <!-- Navbar -->
     <?php 
     if (!isset($_GET['profile'])) {
        require "widget/preload.php";
     }
-    if (!isset($_GET['connected'])) {
+    if (!isset($_COOKIE["user"])) {
       if (isset($_GET['new'])) {
        require "widget/sign-up.php";
       } else {
@@ -31,8 +22,11 @@
       require "widget/navbar.php"; 
       if (isset($_GET['profile'])) {
         require "widget/profile.php";
-      } else {
-       require "widget/body.php";
+      }elseif (isset($_GET["listUsers"])) {
+        require "widget/listUser.php";
+      }
+       else {
+        require "widget/body.php";
       } 
       require "widget/footer.php";
     
@@ -66,6 +60,7 @@
 
   <!-- AdminLTE for demo purposes -->
   <script src="dist/js/demo.js"></script>
+  <script src="dist/js/msg.js"></script>
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
   <script src="dist/js/pages/dashboard2.js"></script>
 </body>

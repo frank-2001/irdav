@@ -25,20 +25,27 @@
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Sign-in <small>do you already have a account?</small></h3>
+                <h3 class="card-title">Sign-in <small>do you already have a account?</small></h3><br>
+                <em style="background:red">
+                <?php
+                  if (isset($errMsg)) {
+                    echo  $errMsg;
+                  }
+                ?>
+              </em>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form id="quickForm" action="#">
-                <input type="hidden" name="connected">
-                <div class="card-body">
+              <form id="quickForm" action="index.php" method="POST">
+                <input type="hidden" name="connect">
+                <div class="card-body"> 
                   <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <input type="text" name="names" class="form-control" id="exampleInputEmail1" placeholder="Enter votre nom d'utilisateur" required>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
                   </div>
                   <div class="form-group mb-0">
                     <div class="custom-control custom-checkbox">

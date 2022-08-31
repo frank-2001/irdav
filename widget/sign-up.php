@@ -1,4 +1,4 @@
-  <div class="content-wrapper">
+ <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
@@ -25,39 +25,51 @@
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Sign-up <small>new account?</small></h3>
+                <h3 class="card-title">Sign-up <small>new account?</small></h3><br>
+                <em style="background:red">
+                <?php
+                  if (isset($errMsg)) {
+                    echo  $errMsg;
+                  }
+                ?>
+              </em>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form id="quickForm" action="#">
-                <input type="hidden" name="connected">
+              <form id="quickForm" action="#" method="POST">
+                <input type="hidden" name="newAccount">
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Names</label>
-                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <input type="text" name="names" class="form-control" id="exampleInputEmail1" placeholder="Entrer vos noms au complet" required>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <input type="email" name="mail" class="form-control" id="exampleInputEmail1" placeholder="Entrer votre adresse mail" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Naissance</label>
+                    <input type="date" name="age" class="form-control" id="exampleInputEmail1" placeholder="Enter votre date de naissance" required>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">New password</label>
-                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Repeat the password</label>
-                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <input type="password" name="password2" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
                   </div>
+                  
                   <div class="form-group mb-0">
                     <div class="custom-control custom-checkbox">
-                      <input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1">
+                      <input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1" required>
                       <label class="custom-control-label" for="exampleCheck1">I agree to the <a href="#">terms of service</a>.</label>
                     </div>
                   </div>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary">Valider</button>
                 </div>
               </form>
             </div>
