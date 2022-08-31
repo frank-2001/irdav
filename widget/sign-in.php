@@ -40,7 +40,7 @@
                 <input type="hidden" name="connect">
                 <div class="card-body"> 
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
+                    <label for="exampleInputEmail1">User name</label>
                     <input type="text" name="names" class="form-control" id="exampleInputEmail1" placeholder="Enter votre nom d'utilisateur" required>
                   </div>
                   <div class="form-group">
