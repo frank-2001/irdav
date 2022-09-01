@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <div class="row mb-2 col-md-9">
           <div class="col-sm-6">
-            <h1>My site web</h1>
+            <h1><?php echo $appData[0]["name"] ?></h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">

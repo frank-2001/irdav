@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php require "widget/head.php"; 
+<?php  
       require "php/class/bdd.php";
-      require "php/methods/main.php";     
+      require "php/methods/main.php";   
+      require "widget/head.php";  
 ?>
 
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -24,13 +25,19 @@
         require "widget/profile.php";
       }elseif (isset($_GET["listUsers"])) {
         require "widget/listUser.php";
+      }elseif (isset($_GET["search"])) {
+        require "widget/search.php";
+      }elseif (isset($_GET["inbox"])) {
+        require "widget/inbox.php";
+      }elseif (isset($_GET["edit"])) {
+        require "widget/edit_site.php";
       }
-       else {
-        require "widget/body.php";
+
+      else {
+        require "widget/home.php";
+        // require "widget/body.php";
       } 
-      require "widget/footer.php";
-    
-    
+      // require "widget/footer.php";
     }
     
      

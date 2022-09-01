@@ -38,3 +38,18 @@ if(isset($_POST['connect'])){
 if(isset($_GET["deconnexion"])){
     deleteCookie("user");
 }
+if(isset($_POST["upload"])){
+    if($_POST["upload"]=="logo"){
+        $targetPath = "upload/logo/" . $_FILES['file']['name']; // Target path where file is to be stored
+        $bdd->editPage($_POST['title'],$_FILES['file']['name'],$_POST['slogan']); 
+    }
+    if($_POST["upload"]=="publicite"){
+        $targetPath = "upload/publicite/" . $_FILES['file']['name']; // Target path where file is to be stored
+        $bdd->insertPub($_POST['title'],$_POST['description'],$_FILES['file']['name'],$_POST['link']); 
+    }
+    $sourcePath = $_FILES['file']['tmp_name']; // Storing source path of the file in a variable
+    compressImage($sourcePath,$targetPath,30);
+    header("location:index.php");
+
+}
+// $bdd->editPage("cool","cool","cool");
