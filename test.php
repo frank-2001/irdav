@@ -5,4 +5,9 @@ $dateTime = new DateTime($date);
 $stamp=$dateTime->format('U');
 
 $annee=time()-$stamp;
-echo intval($annee/(86400*360));
+intval($annee/(86400*360));
+
+$x="Frank Mkaolongo";
+$y="longo";
+echo strpos($x,$y)!=="";
+

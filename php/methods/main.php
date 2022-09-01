@@ -19,7 +19,7 @@ function deleteCookie($title){
 }
 function getAge($stamp){
     $annee=time()-$stamp;
-    return $annee/(86400*360);
+    return intval($annee/(86400*360));
 }
 
 function profile($user){

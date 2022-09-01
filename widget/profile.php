@@ -33,17 +33,17 @@
 
                 <h3 class="profile-username text-center"><?php echo $user_connected['names']; ?></h3>
 
-                <p class="text-muted text-center">Congo - Kinshasa</p>
+                <p class="text-muted text-center"><?php echo $user_connected['localisation']; ?></p>
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
-                    <b>Age</b> <a class="float-right"><?php echo $user_connected['age']; ?> ans</a>
+                    <b>Age</b> <a class="float-right"><?php echo getAge($user_connected['age']); ?> ans</a>
                   </li>
                   <li class="list-group-item">
-                    <b>Sexe</b> <a class="float-right">Homme</a>
+                    <b>Sexe</b> <a class="float-right"><?php echo $user_connected['sexe']; ?></a>
                   </li>
                   <li class="list-group-item">
-                    <b>Orientation </b> <a class="float-right">Hetero
+                    <b>Orientation </b> <a class="float-right"><?php echo $user_connected['orientation']; ?>
                   </li>
                 </ul>
 

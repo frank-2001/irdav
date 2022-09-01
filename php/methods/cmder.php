@@ -17,13 +17,13 @@ if(isset($_POST['newAccount'])){
         $errMsg="Mots de passe differents";
         $erpass=true;     
     }
-    if($myAge<25 && $myAge>10){ 
+    if($myAge>=18){ 
         $age=true;     
     }else{
         $errMsg="Age non recommander ".$myAge;
     }
     if (!$erpass && !$exist && $age) {
-        $bdd->insertMember(strtolower($_POST["names"]),$_POST["mail"],$myAge,$_POST["password"]);
+        $bdd->insertMember(strtolower($_POST["names"]),$_POST["mail"],$stamp,$_POST["password"],$_POST["sexe"],$_POST["location"]);
         $_POST['connect']=1;
     }
 }

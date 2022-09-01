@@ -52,6 +52,23 @@
                     <input type="date" name="age" class="form-control" id="exampleInputEmail1" placeholder="Enter votre date de naissance" required>
                   </div>
                   <div class="form-group">
+                    <label for="exampleInputEmail1">Genre</label>
+                    <select name="sexe" id="" class="form-control">
+                      <option value="H">Masculin</option>
+                      <option value="F">Feminin</option>
+                      <option value="F">Autres</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Pays</label>
+                    <select name="location" id="" class="form-control">
+                      <option value="RDC">R.D.Congo</option>
+                      <option value="France">France</option>
+                      <option value="Rwanda">Rwanda</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
                     <label for="exampleInputPassword1">New password</label>
                     <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
                   </div>

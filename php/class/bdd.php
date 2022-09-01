@@ -1,16 +1,16 @@
 <?php
 class bdd{
 	#Base des donnees online
-    var $host='sql.freedb.tech';
-	var $dbname='freedb_irdavid';
-	var $user='freedb_frankm';
-	var $pass='#3&aTgj78XdnZkZ';
+    // var $host='sql.freedb.tech';
+	// var $dbname='freedb_irdavid';
+	// var $user='freedb_frankm';
+	// var $pass='#3&aTgj78XdnZkZ';
     
     #Base des donnees local
-    // var $host='localhost';
-	// var $dbname='irdavid';
-	// var $user='root';
-	// var $pass='';
+    var $host='localhost';
+	var $dbname='irdavid';
+	var $user='root';
+	var $pass='';
     function connect(){
     try { 
 	    $bdd = 	new PDO('mysql:host='.$this->host.';dbname='.$this->dbname, $this->user, $this->pass);
@@ -23,14 +23,16 @@ class bdd{
 
     }
     // Users
-    function insertMember($name,$mail,$age,$password){
-        $reponse=$this->connect()->prepare('INSERT INTO users (names, mail, age, stamp,password) values (:names, :mail, :age, :stamp,:password)');
+    function insertMember($name,$mail,$age,$password,$sexe,$location){
+        $reponse=$this->connect()->prepare('INSERT INTO users (names, mail, age, stamp,password,sexe,localisation) values (:names, :mail, :age, :stamp,:password,:sexe,:localisation)');
         $reponse->execute(array(
             'names'=>$name,
             'mail' =>$mail, 
             'age'=>$age,
             'stamp'=>time(),
-            'password'=>$password
+            'password'=>$password,
+            'sexe'=>$sexe,
+            'localisation'=>$location,
         ));
     }
 
@@ -45,6 +47,14 @@ class bdd{
         $requete= $this->connect()->prepare("SELECT*FROM users where names=:names and password=:pass");
         $requete->bindParam(':names',$names);
 	    $requete->bindParam(':pass',$pass);
+        $requete->execute();
+        $resultats=$requete->fetchAll();
+        return $resultats;
+    }
+
+    function searchMembers($names){
+        $requete= $this->connect()->prepare("SELECT*FROM users where names LIKE :names");
+        $requete->bindParam(':names',$names);
         $requete->execute();
         $resultats=$requete->fetchAll();
         return $resultats;

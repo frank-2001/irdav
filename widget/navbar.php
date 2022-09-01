@@ -1,8 +1,8 @@
-    <nav class="main-header navbar navbar-expand navbar-dark">
+    <nav class="main-header navbar navbar-expand dark-mode ">
       <!-- Left navbar links -->
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars text-purple"></i></a>
         </li>
         <!-- <li class="nav-item d-none d-sm-inline-block">
           <a href="index.php" class="nav-link">Home</a>
@@ -39,7 +39,7 @@
         <!-- Messages Dropdown Menu -->
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#">
-            <i class="far fa-comments"></i>
+            <i class="far fa-comments text-purple"></i>
             <span class="badge badge-danger navbar-badge">3</span>
           </a>
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
@@ -97,7 +97,7 @@
         <!-- Notifications Dropdown Menu -->
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#">
-            <i class="far fa-bell"></i>
+            <i class="far fa-bell text-purple"></i>
             <span class="badge badge-warning navbar-badge">15</span>
           </a>
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
@@ -123,7 +123,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-            <i class="fas fa-expand-arrows-alt"></i>
+            <i class="fas fa-expand-arrows-alt text-purple"></i>
           </a>
         </li>
         <!-- <li class="nav-item ">
@@ -134,7 +134,7 @@
       </ul>
     </nav>
         
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar sidebar-light-primary elevation-4 ">
       <!-- Brand Logo -->
       <a href="index.php" class="brand-link">
         <img src="upload/logo/<?php echo  $appData[0]["logo"] ?>" alt="logo" class="brand-image img-circle elevation-3"
@@ -171,39 +171,39 @@
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
                 <a href="index.php" class="nav-link">
-                    <i class="nav-icon fas fa-home  text-primary"></i>
+                    <i class="nav-icon fas fa-home  text-purple"></i>
                     <p class="text">Home</p>
                 </a>
             </li>
           
             <li class="nav-item">
                 <a href="index.php?profile=1" class="nav-link">
-                    <i class="nav-icon fas fa-user  text-primary"></i>
+                    <i class="nav-icon fas fa-user  text-purple"></i>
                     <p class="text">Profil</p>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="index.php?inbox" class="nav-link">
-                    <i class="nav-icon fas fa-comment  text-primary"></i>
+                    <i class="nav-icon fas fa-comment  text-purple"></i>
                     <p class="text">Messagerie</p>
                 </a>
             </li> 
             <!-- <li class="nav-item">
                 <a href="index.php?profile=1&connected" class="nav-link">
-                    <i class="nav-icon fas fa-user text-primary"></i>
+                    <i class="nav-icon fas fa-user text-purple"></i>
                     <p class="text">Profile</p>
                 </a>
             </li> -->
             <li class="nav-item">
                 <a href="index.php?search" class="nav-link">
-                    <i class="nav-icon fas fa-search text-primary"></i>
+                    <i class="nav-icon fas fa-search text-purple"></i>
                     <p class="text">Recherche</p>
                 </a>
             </li>
 
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-lock text-primary"></i>
+                <i class="nav-icon fas fa-lock text-purple"></i>
                 <p>
                   Admin Options
                   <i class="fas fa-angle-left right "></i>
