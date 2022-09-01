@@ -1,16 +1,16 @@
 <?php
 class bdd{
 	#Base des donnees online
-    // var $host='sql.freedb.tech';
-	// var $dbname='freedb_irdavid';
-	// var $user='freedb_frankm';
-	// var $pass='#3&aTgj78XdnZkZ';
+    var $host='sql.freedb.tech';
+	var $dbname='freedb_irdavid';
+	var $user='freedb_frankm';
+	var $pass='#3&aTgj78XdnZkZ';
     
     #Base des donnees local
-    var $host='localhost';
-	var $dbname='irdavid';
-	var $user='root';
-	var $pass='';
+    // var $host='localhost';
+	// var $dbname='irdavid';
+	// var $user='root';
+	// var $pass='';
     function connect(){
     try { 
 	    $bdd = 	new PDO('mysql:host='.$this->host.';dbname='.$this->dbname, $this->user, $this->pass);

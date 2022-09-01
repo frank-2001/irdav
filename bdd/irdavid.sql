@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 01 sep. 2022 à 06:25
+-- Généré le : jeu. 01 sep. 2022 à 18:08
 -- Version du serveur : 10.4.22-MariaDB
 -- Version de PHP : 7.4.26
 
@@ -69,7 +69,8 @@ INSERT INTO `site_infos` (`name`, `logo`, `id`, `stamp`, `slogan`) VALUES
 ('Lover', 'IMG_3276.JPG', 3, '1662000063', 'Lade'),
 ('FollowMe', 'IMG_3376.JPG', 4, '1662000271', 'Merci pour votre soutien'),
 ('MeetMe', 'AdminLTELogo.png', 5, '1662001828', 'Take over'),
-('JoinUs', 'avatar.png', 6, '1662004204', 'Think big and you\'ll be biggest one day');
+('JoinUs', 'avatar.png', 6, '1662004204', 'Think big and you\'ll be biggest one day'),
+('Niguse', 'logo.jpg', 7, '1662047446', 'Plateforme de rencontre en ligne');
 
 -- --------------------------------------------------------
 
@@ -83,24 +84,28 @@ CREATE TABLE `users` (
   `mail` varchar(50) NOT NULL,
   `age` int(11) NOT NULL,
   `password` varchar(25) NOT NULL,
-  `stamp` varchar(50) NOT NULL
+  `stamp` varchar(50) NOT NULL,
+  `sexe` varchar(15) NOT NULL,
+  `orientation` varchar(15) NOT NULL,
+  `localisation` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `names`, `mail`, `age`, `password`, `stamp`) VALUES
-(1, 'Franky', '', 21, '12', '1661877363'),
-(2, 'Franky', 'mister@gmail.com', 21, '12', '1661877430'),
-(3, 'Cool', 'mister@gmail.com', 21, '23', '1661877539'),
-(4, 'Franky', 'mister@gmail.com', 21, '1', '1661900970'),
-(5, 'Jospin', 'jo@mail.com', 0, '12', '1661906452'),
-(6, 'Frank', 'frank@mail.com', 0, 'Code', '1661907047'),
-(7, 'Love', 'lolo@gmial.com', 1661908220, '123', '1661908252'),
-(8, 'Beau', 'beau@gmail.com', 0, '22', '1661908375'),
-(9, 'Dicaprio', 'dicap@mail.com', 32, '23', '1661909006'),
-(10, 'jordan', 'jor@gmail.com', 12, 'de', '1661909310');
+INSERT INTO `users` (`id`, `names`, `mail`, `age`, `password`, `stamp`, `sexe`, `orientation`, `localisation`) VALUES
+(1, 'Franky', '', 21, '12', '1661877363', '', '', ''),
+(2, 'Franky', 'mister@gmail.com', 21, '12', '1661877430', '', '', ''),
+(3, 'Cool', 'mister@gmail.com', 21, '23', '1661877539', '', '', ''),
+(4, 'Franky', 'mister@gmail.com', 21, '1', '1661900970', '', '', ''),
+(5, 'Jospin', 'jo@mail.com', 0, '12', '1661906452', '', '', ''),
+(6, 'Frank', 'frank@mail.com', 0, 'Code', '1661907047', '', '', ''),
+(7, 'Love', 'lolo@gmial.com', 1661908220, '123', '1661908252', '', '', ''),
+(8, 'Beau', 'beau@gmail.com', 0, '22', '1661908375', '', '', ''),
+(9, 'Dicaprio', 'dicap@mail.com', 32, '23', '1661909006', '', '', ''),
+(10, 'jordan', 'jor@gmail.com', 12, 'de', '1661909310', '', '', ''),
+(11, 'jolie', 'jolie@jolie.com', 1000245600, '2', '1662046482', 'H', '', 'RDC');
 
 --
 -- Index pour les tables déchargées
@@ -138,13 +143,13 @@ ALTER TABLE `publicite`
 -- AUTO_INCREMENT pour la table `site_infos`
 --
 ALTER TABLE `site_infos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
