@@ -4,7 +4,7 @@ class bdd{
     var $host='sql.freedb.tech';
 	var $dbname='freedb_irdavid';
 	var $user='freedb_frankm';
-	var $pass='#3&aTgj78XdnZkZ';
+	var $pass='jeH9e*Za$R8JUbd';
     
     #Base des donnees local
     // var $host='localhost';
