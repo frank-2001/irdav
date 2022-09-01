@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 31 août 2022 à 04:26
+-- Généré le : jeu. 01 sep. 2022 à 06:25
 -- Version du serveur : 10.4.22-MariaDB
 -- Version de PHP : 7.4.26
 
@@ -20,6 +20,56 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `irdavid`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `publicite`
+--
+
+CREATE TABLE `publicite` (
+  `id` int(11) NOT NULL,
+  `title` varchar(20) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  `image` varchar(50) NOT NULL,
+  `stamp` varchar(50) NOT NULL,
+  `link` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `publicite`
+--
+
+INSERT INTO `publicite` (`id`, `title`, `description`, `image`, `stamp`, `link`) VALUES
+(1, 'NRA', 'Vente produit', 'photo2.png', '1662002272', 'http://localhost/irdav/'),
+(2, 'Lorem ipsum dolor, s', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt iste, reiciendis, repellendus ill', 'IMG_1117_by_CedricMuteya.jpg', '1662002634', 'http://localhost/irdav/'),
+(5, 'John ripper', 'Vente produit', 'photo1.png', '1662005398', 'http://localhost/irdav/');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `site_infos`
+--
+
+CREATE TABLE `site_infos` (
+  `name` varchar(100) NOT NULL,
+  `logo` varchar(100) NOT NULL,
+  `id` int(11) NOT NULL,
+  `stamp` varchar(50) NOT NULL,
+  `slogan` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `site_infos`
+--
+
+INSERT INTO `site_infos` (`name`, `logo`, `id`, `stamp`, `slogan`) VALUES
+('There are', 'IMG_3376.JPG', 1, '1661999663', 'Merci pour votre soutien'),
+('Franky', 'IMG_3376.JPG', 2, '1661999984', 'Merci pour votre soutien'),
+('Lover', 'IMG_3276.JPG', 3, '1662000063', 'Lade'),
+('FollowMe', 'IMG_3376.JPG', 4, '1662000271', 'Merci pour votre soutien'),
+('MeetMe', 'AdminLTELogo.png', 5, '1662001828', 'Take over'),
+('JoinUs', 'avatar.png', 6, '1662004204', 'Think big and you\'ll be biggest one day');
 
 -- --------------------------------------------------------
 
@@ -57,6 +107,18 @@ INSERT INTO `users` (`id`, `names`, `mail`, `age`, `password`, `stamp`) VALUES
 --
 
 --
+-- Index pour la table `publicite`
+--
+ALTER TABLE `publicite`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `site_infos`
+--
+ALTER TABLE `site_infos`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `users`
 --
 ALTER TABLE `users`
@@ -65,6 +127,18 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT pour les tables déchargées
 --
+
+--
+-- AUTO_INCREMENT pour la table `publicite`
+--
+ALTER TABLE `publicite`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT pour la table `site_infos`
+--
+ALTER TABLE `site_infos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `users`
