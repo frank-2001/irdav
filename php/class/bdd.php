@@ -1,26 +1,32 @@
 <?php
 class bdd{
-	#Base des donnees online
-    var $host='sql.freedb.tech';
-	var $dbname='freedb_irdavid';
-	var $user='freedb_frankm';
-	var $pass='jeH9e*Za$R8JUbd';
-    
-    #Base des donnees local
-    // var $host='localhost';
-	// var $dbname='irdavid';
-	// var $user='root';
-	// var $pass='';
+    var $host;
+    var $dbname;
+    var $user;
+    var $pass;
+    function getServer(){
+        #Base des donnees online
+        $this->host='sql.freedb.tech';
+        $this->dbname='freedb_irdavid';
+        $this->user='freedb_frankm';
+        $this->pass='jeH9e*Za$R8JUbd';
+        #Base des donnees local
+        if ($_SERVER['SERVER_NAME']=="localhost") {
+            $this->host='localhost';
+            $this->dbname='irdavid';
+            $this->user='root';
+            $this->pass='';
+        }
+    }
     function connect(){
-    try { 
-	    $bdd = 	new PDO('mysql:host='.$this->host.';dbname='.$this->dbname, $this->user, $this->pass);
-        return $bdd;
-    }
-    catch   (PDOException $pe){
-        die ("I cannot connect to the database " . $pe->getMessage());
-        return null;
-    }
-
+        try { 
+            $bdd = 	new PDO('mysql:host='.$this->host.';dbname='.$this->dbname, $this->user, $this->pass);
+            return $bdd;
+        }
+        catch   (PDOException $pe){
+            die ("I cannot connect to the database " . $pe->getMessage());
+            return null;
+        }
     }
     // Users
     function insertMember($name,$mail,$age,$password,$sexe,$location){
@@ -95,8 +101,11 @@ class bdd{
         $resultats=$requete->fetchAll();
         return $resultats;
     }
+
+    //
 }
 $bdd=new bdd();
+$bdd->getServer();
 $connect=$bdd->connect();
 $appData=$bdd->getPage();
 $pubData=$bdd->getPubs();

@@ -70,6 +70,7 @@
   <script src="dist/js/msg.js"></script>
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
   <script src="dist/js/pages/dashboard2.js"></script>
+  <script src="dist/js/timer.js"></script>
 </body>
 
 </html>
