@@ -4,6 +4,7 @@ class bdd{
     var $dbname;
     var $user;
     var $pass;
+
     function getServer(){
         #Base des donnees online
         $this->host='sql.freedb.tech';
@@ -12,10 +13,10 @@ class bdd{
         $this->pass='jeH9e*Za$R8JUbd';
         #Base des donnees local
         if ($_SERVER['SERVER_NAME']=="localhost") {
-            $this->host='localhost';
-            $this->dbname='irdavid';
-            $this->user='root';
-            $this->pass='';
+            // $this->host='localhost';
+            // $this->dbname='irdavid';
+            // $this->user='root';
+            // $this->pass='';
         }
     }
     function connect(){
@@ -27,6 +28,11 @@ class bdd{
             die ("I cannot connect to the database " . $pe->getMessage());
             return null;
         }
+    }
+    //UpdateDB Hosted
+    function updateDB(){
+        $db_path="bdd/bdd.sql";
+        $select = $this->connect()->query(file_get_contents($db_path));
     }
     // Users
     function insertMember($name,$mail,$age,$password,$sexe,$location){
@@ -82,7 +88,6 @@ class bdd{
         $resultats=$requete->fetchAll();
         return $resultats;
     }
-
     // publicite
     function insertPub($title,$description,$image,$link){
         $reponse=$this->connect()->prepare('INSERT INTO publicite (title, description, image, stamp,link) values (:title, :description, :image, :stamp,:link)');
@@ -101,8 +106,27 @@ class bdd{
         $resultats=$requete->fetchAll();
         return $resultats;
     }
+    //activation_account
+    function insertActivation($id){
+         $reponse=$this->connect()->prepare('INSERT INTO activation_account (id, time, actived) values (:id, :time, :actived)');
+        $reponse->execute(array(
+            'id'=>$id,
+            'time' =>time()+31104000,
+            'actived'=>0,
+        ));
+    }
+    function getActivation($id){
+        $requete= $this->connect()->prepare("SELECT*FROM activation_account where id=:id");
+        $requete->bindParam(':id',$id);
+        $requete->execute();
+        $resultats=$requete->fetchAll();
+        if(count($resultats)==0){
+            $this->insertActivation($id);
+            return $this->getActivation($id);
+        }
+        return $resultats[0]["time"];
+    }
 
-    //
 }
 $bdd=new bdd();
 $bdd->getServer();
@@ -112,4 +136,5 @@ $pubData=$bdd->getPubs();
 $usersData=$bdd->getMembers();
 if(isset($_COOKIE["user"])){
     $user_connected=json_decode($_COOKIE["user"],true);
+    $activation=$bdd->getActivation($user_connected["id"]);
 }

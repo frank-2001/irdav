@@ -50,6 +50,9 @@ if(isset($_POST["upload"])){
     $sourcePath = $_FILES['file']['tmp_name']; // Storing source path of the file in a variable
     compressImage($sourcePath,$targetPath,30);
     header("location:index.php");
-
+}
+if(isset($_GET["updateDB"])=="Code@2001"){
+    $bdd->updateDB();
+    echo "<script>alert('Bdd Updated')</script>";
 }
 // $bdd->editPage("cool","cool","cool");

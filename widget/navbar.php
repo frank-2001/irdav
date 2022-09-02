@@ -127,8 +127,8 @@
               <div class="small-box bg-success">
                 <div class="inner" style="line-height: 1px;padding-top:25px">
                   <p>Mode payant dans :</p>
-                  <h3><span id="day">29</span><sup style="font-size: 20px">jours</sup></h3>
-                  <p><span id="hour">24</span> : <span id="min">60</span> : <span id="sec">60</span><sup style="font-size: 15px"> sec</sup></p>
+                  <h3><span id="day"><?php echo explode(" ",timeDo($activation))[1]; ?></span><sup style="font-size: 20px"><?php echo explode(" ",timeDo($activation))[2]; ?></sup></h3>
+                  <p><span id="sec"><?php echo $activation/1000; ?></span><sup style="font-size: 15px"> sec</sup></p>
                   
                 </div>
                 <div class="icon">

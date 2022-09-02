@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 01 sep. 2022 à 18:08
+-- Généré le : ven. 02 sep. 2022 à 20:19
 -- Version du serveur : 10.4.22-MariaDB
 -- Version de PHP : 7.4.26
 
@@ -20,6 +20,18 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `irdavid`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `activation_account`
+--
+
+CREATE TABLE `activation_account` (
+  `id` int(11) NOT NULL,
+  `time` int(11) NOT NULL,
+  `actived` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
