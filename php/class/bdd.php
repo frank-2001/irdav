@@ -9,14 +9,14 @@ class bdd{
         #Base des donnees online
         $this->host='sql.freedb.tech';
         $this->dbname='freedb_irdavid';
-        $this->user='freedb_frankm';
-        $this->pass='jeH9e*Za$R8JUbd';
+        $this->user='freedb_frank';
+        $this->pass='zpR3drQ2FDaPSr%';
         #Base des donnees local
         if ($_SERVER['SERVER_NAME']=="localhost") {
-            // $this->host='localhost';
-            // $this->dbname='irdavid';
-            // $this->user='root';
-            // $this->pass='';
+            $this->host='localhost';
+            $this->dbname='irdavid';
+            $this->user='root';
+            $this->pass='';
         }
     }
     function connect(){
@@ -35,8 +35,8 @@ class bdd{
         $select = $this->connect()->query(file_get_contents($db_path));
     }
     // Users
-    function insertMember($name,$mail,$age,$password,$sexe,$location){
-        $reponse=$this->connect()->prepare('INSERT INTO users (names, mail, age, stamp,password,sexe,localisation) values (:names, :mail, :age, :stamp,:password,:sexe,:localisation)');
+    function insertMember($name,$mail,$age,$password,$sexe,$location,$description,$profile){
+        $reponse=$this->connect()->prepare('INSERT INTO users (names, mail, age, stamp,password,sexe,localisation,description,profile) values (:names, :mail, :age, :stamp,:password,:sexe,:localisation,:description,:profile)');
         $reponse->execute(array(
             'names'=>$name,
             'mail' =>$mail, 
@@ -45,7 +45,10 @@ class bdd{
             'password'=>$password,
             'sexe'=>$sexe,
             'localisation'=>$location,
+            'description'=>$description,
+            'profile'=>$profile,
         ));
+        print_r($reponse);
     }
 
     function getMembers(){
@@ -70,6 +73,13 @@ class bdd{
         $requete->execute();
         $resultats=$requete->fetchAll();
         return $resultats;
+    }
+    //Update user
+    function updateUser($id,$column,$value){
+        $requete = $this->connect()->prepare('UPDATE users SET\''.$column.'\'= :seleted where id=\''.$id.'\'');
+		$requete->execute(array(
+			'seleted' =>$value
+		));
     }
     // site_infos
     function editPage($name,$logo,$slogan){

@@ -107,10 +107,15 @@
             <i class="fas fa-expand-arrows-alt text-white"></i>
           </a>
         </li>
+        <li class="nav-item ml-auto" >
+            <a class="nav-link" data-toggle="dropdown" href="#">
+            <i class="fas fa-moon" id="dark_activer"></i>
+          </a>
+        </li>
       </ul>
     </nav>
         
-    <aside class="main-sidebar sidebar-light-primary elevation-4 ">
+    <aside class="main-sidebar sidebar-light-primary elevation-4 sidebar-mini">
       <!-- Brand Logo -->
       <a href="index.php" class="brand-link">
         <img src="upload/logo/<?php echo  $appData[0]["logo"] ?>" alt="logo" class="brand-image img-circle elevation-3"
@@ -128,7 +133,7 @@
                 <div class="inner" style="line-height: 1px;padding-top:25px">
                   <p>Mode payant dans :</p>
                   <h3><span id="day"><?php echo explode(" ",timeDo($activation))[1]; ?></span><sup style="font-size: 20px"><?php echo explode(" ",timeDo($activation))[2]; ?></sup></h3>
-                  <p><span id="sec"><?php echo $activation/1000; ?></span><sup style="font-size: 15px"> sec</sup></p>
+                  <p><span id="sec"><?php echo ($activation-time()); ?></span><sup style="font-size: 15px"> sec</sup></p>
                   
                 </div>
                 <div class="icon">

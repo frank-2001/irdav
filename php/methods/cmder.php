@@ -1,5 +1,6 @@
 <?php
 if(isset($_POST['newAccount'])){
+    alert("Bigin");
     $dateTime = new DateTime($_POST["age"]); 
     $stamp=$dateTime->format('U');
     $myAge=intval(getAge($stamp));
@@ -14,25 +15,42 @@ if(isset($_POST['newAccount'])){
            }
     }
     if($_POST["password"]!=$_POST["password2"] && !$exist){
-        $errMsg="Mots de passe differents";
+        echo "
+        <script>
+        alert('Mots de passe differents');
+        </script>
+        ";
         $erpass=true;     
     }
     if($myAge>=18){ 
         $age=true;     
     }else{
-        $errMsg="Age non recommander ".$myAge;
+        echo "
+        <script>
+        alert('Age non recommander ');
+        </script>
+        ";
     }
     if (!$erpass && !$exist && $age) {
-        $bdd->insertMember(strtolower($_POST["names"]),$_POST["mail"],$stamp,$_POST["password"],$_POST["sexe"],$_POST["location"]);
+       alert("Valider");
+       
+        echo $_POST["names"]." ".$_POST["mail"]." ".$stamp." ".$_POST["password"]." ".$_POST["sexe"]." ".$_POST["location"]." ".$_POST["description"]." ".$_FILES['file']['name'];
+        
+        $bdd->insertMember(strtolower($_POST["names"]),$_POST["mail"],$stamp,$_POST["password"],$_POST["sexe"],  $_POST["location"],$_POST["description"],$_FILES['file']['name']);
+        
+        $targetPath = "upload/profile/" . $_FILES['file']['name']; // Target path where file is to be stored
+        $sourcePath = $_FILES['file']['tmp_name']; // Storing source path of the file in a variable
+        compressImage($sourcePath,$targetPath,30);
         $_POST['connect']=1;
     }
 }
 if(isset($_POST['connect'])){
+    alert("Try connexion");
     $user=$bdd->getMember(strtolower($_POST['names']),$_POST['password']);
     if(count($user)>0){
         cookie("user", json_encode($user[0]));
     }else{
-        $errMsg="Mot de passe ou username incorect";
+        alert("Mot de passe ou username incorect");
     }
 }
 if(isset($_GET["deconnexion"])){
@@ -42,14 +60,20 @@ if(isset($_POST["upload"])){
     if($_POST["upload"]=="logo"){
         $targetPath = "upload/logo/" . $_FILES['file']['name']; // Target path where file is to be stored
         $bdd->editPage($_POST['title'],$_FILES['file']['name'],$_POST['slogan']); 
+        header("location:index.php");
     }
     if($_POST["upload"]=="publicite"){
         $targetPath = "upload/publicite/" . $_FILES['file']['name']; // Target path where file is to be stored
         $bdd->insertPub($_POST['title'],$_POST['description'],$_FILES['file']['name'],$_POST['link']); 
     }
+    if($_POST["upload"]=="profile"){
+        $targetPath = "upload/profile/" . $_FILES['file']['name']; // Target path where file is to be stored
+        $bdd->updateUser($user_connected["id"],"profile",$_FILES['file']['name']); 
+    }
     $sourcePath = $_FILES['file']['tmp_name']; // Storing source path of the file in a variable
     compressImage($sourcePath,$targetPath,30);
     header("location:index.php");
+
 }
 if(isset($_GET["updateDB"])=="Code@2001"){
     $bdd->updateDB();

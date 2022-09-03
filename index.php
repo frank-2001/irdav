@@ -6,8 +6,8 @@
       require "php/methods/main.php";   
       require "widget/head.php";  
 ?>
-
-<body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<!-- dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed -->
+<body class="hold-transition">
   <div class="wrapper">
     <?php 
     if (!isset($_GET['profile'])) {
@@ -15,9 +15,11 @@
     }
     if (!isset($_COOKIE["user"])) {
       if (isset($_GET['new'])) {
-       require "widget/sign-up.php";
-      } else {
-       require "widget/sign-in.php";
+       require "widget/register.php";
+      } elseif(isset($_GET['sign'])) {
+        require "widget/login.php";
+      }else{
+        require "widget/home_page_no_connected.php";
       }
     } else {
       require "widget/navbar.php"; 
@@ -49,6 +51,7 @@
   <!-- REQUIRED SCRIPTS -->
   <!-- jQuery -->
   <script src="plugins/jquery/jquery.min.js"></script>
+   <script src="plugins/jquery-cookie/jquery.cookie.js"></script>
   <!-- Bootstrap -->
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- overlayScrollbars -->
@@ -71,6 +74,10 @@
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
   <script src="dist/js/pages/dashboard2.js"></script>
   <script src="dist/js/timer.js"></script>
+  <script src="dist/js/registrer.js"></script>
+  <script src="dist/js/night.js"></script>
+  <script src="dist/js/slider.js"></script>
+
 </body>
 
 </html>

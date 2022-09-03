@@ -12,5 +12,7 @@
   <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
-  
+  <!-- Bootstrap 4 -->
+  <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+
 </head>

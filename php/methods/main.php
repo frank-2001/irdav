@@ -141,3 +141,10 @@ function timeDo($stamp){// Retour le temps qu'un article a fait depuis sa public
 			}
 			return $text.' '.$time;
 	}
+function alert($message){
+	 echo "
+        <script>
+        alert('".$message."');
+        </script>
+        ";
+}
